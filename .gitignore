@@ -1,0 +1,47 @@
+# Xcode
+.DS_Store
+*.swp
+*.user
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcworkspace
+xcuserdata/
+*.moved-aside
+DerivedData/
+.idea/
+
+# Swift
+*.build/
+build/
+*.ipa
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Accio
+Dependencies/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code Injection
+injected_dylib_payloads/
+
+# User settings
+*.hmap
+
+# JetBrains IDEs
+.idea/
+
+# Others
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
