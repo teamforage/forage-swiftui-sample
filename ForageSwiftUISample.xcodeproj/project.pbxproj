@@ -11,11 +11,10 @@
 		5D92F28F2AEB027C00941817 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F28E2AEB027C00941817 /* ContentView.swift */; };
 		5D92F2912AEB027D00941817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D92F2902AEB027D00941817 /* Assets.xcassets */; };
 		5D92F2942AEB027D00941817 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D92F2932AEB027D00941817 /* Preview Assets.xcassets */; };
-		5D92F29F2AEB036800941817 /* SwiftUISampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F29B2AEB036700941817 /* SwiftUISampleApp.swift */; };
-		5D92F2A02AEB036800941817 /* ForagePANView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F29C2AEB036800941817 /* ForagePANView.swift */; };
-		5D92F2A12AEB036800941817 /* ForagePINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F29D2AEB036800941817 /* ForagePINView.swift */; };
-		5D92F2A22AEB036800941817 /* ForageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92F29E2AEB036800941817 /* ForageViewModel.swift */; };
 		5D92F2A52AEB03A200941817 /* ForageSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 5D92F2A42AEB03A200941817 /* ForageSDK */; };
+		5D9FF8942AFAE7AB003D4F41 /* ForageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FF8932AFAE7AB003D4F41 /* ForageViewModel.swift */; };
+		5D9FF8962AFAE7D8003D4F41 /* ForagePANView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FF8952AFAE7D8003D4F41 /* ForagePANView.swift */; };
+		5D9FF8982AFAE833003D4F41 /* ForagePINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FF8972AFAE833003D4F41 /* ForagePINView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +23,9 @@
 		5D92F28E2AEB027C00941817 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D92F2902AEB027D00941817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D92F2932AEB027D00941817 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5D92F29B2AEB036700941817 /* SwiftUISampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftUISampleApp.swift; path = ../../SwiftUISample/SwiftUISample/SwiftUISampleApp.swift; sourceTree = "<group>"; };
-		5D92F29C2AEB036800941817 /* ForagePANView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForagePANView.swift; path = ../../SwiftUISample/SwiftUISample/ForagePANView.swift; sourceTree = "<group>"; };
-		5D92F29D2AEB036800941817 /* ForagePINView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForagePINView.swift; path = ../../SwiftUISample/SwiftUISample/ForagePINView.swift; sourceTree = "<group>"; };
-		5D92F29E2AEB036800941817 /* ForageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForageViewModel.swift; path = ../../SwiftUISample/SwiftUISample/ForageViewModel.swift; sourceTree = "<group>"; };
+		5D9FF8932AFAE7AB003D4F41 /* ForageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForageViewModel.swift; sourceTree = "<group>"; };
+		5D9FF8952AFAE7D8003D4F41 /* ForagePANView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForagePANView.swift; sourceTree = "<group>"; };
+		5D9FF8972AFAE833003D4F41 /* ForagePINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForagePINView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +60,12 @@
 			isa = PBXGroup;
 			children = (
 				5D92F28C2AEB027C00941817 /* ForageSwiftUISampleApp.swift */,
-				5D92F29C2AEB036800941817 /* ForagePANView.swift */,
-				5D92F29D2AEB036800941817 /* ForagePINView.swift */,
-				5D92F29E2AEB036800941817 /* ForageViewModel.swift */,
-				5D92F29B2AEB036700941817 /* SwiftUISampleApp.swift */,
 				5D92F28E2AEB027C00941817 /* ContentView.swift */,
 				5D92F2902AEB027D00941817 /* Assets.xcassets */,
 				5D92F2922AEB027D00941817 /* Preview Content */,
+				5D9FF8932AFAE7AB003D4F41 /* ForageViewModel.swift */,
+				5D9FF8952AFAE7D8003D4F41 /* ForagePANView.swift */,
+				5D9FF8972AFAE833003D4F41 /* ForagePINView.swift */,
 			);
 			path = ForageSwiftUISample;
 			sourceTree = "<group>";
@@ -157,10 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D92F2A12AEB036800941817 /* ForagePINView.swift in Sources */,
-				5D92F2A02AEB036800941817 /* ForagePANView.swift in Sources */,
-				5D92F2A22AEB036800941817 /* ForageViewModel.swift in Sources */,
-				5D92F29F2AEB036800941817 /* SwiftUISampleApp.swift in Sources */,
+				5D9FF8982AFAE833003D4F41 /* ForagePINView.swift in Sources */,
+				5D9FF8942AFAE7AB003D4F41 /* ForageViewModel.swift in Sources */,
+				5D9FF8962AFAE7D8003D4F41 /* ForagePANView.swift in Sources */,
 				5D92F28F2AEB027C00941817 /* ContentView.swift in Sources */,
 				5D92F28D2AEB027C00941817 /* ForageSwiftUISampleApp.swift in Sources */,
 			);
