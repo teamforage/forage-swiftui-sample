@@ -5,23 +5,23 @@
 //  Created by Danilo Joksimovic on 2023-10-26.
 //
 
-import SwiftUI
 import ForageSDK
+import SwiftUI
 
 struct ContentView: View {
     @ObservedObject private var viewModel: ForageViewModel
-    
+
     @State private var tokenizeResult: PaymentMethodModel?
     @State private var balanceResult: BalanceModel?
-    
+
     @State private var errorMessage: String = ""
     @State private var showError: Bool = false
-    
+
     @State private var textInput: String = ""
-    
+
     init(viewModel: ForageViewModel) {
         self.viewModel = viewModel
-        
+
         ForageSDK.setup(
             ForageSDK.Config(
                 merchantID: "1234567",
@@ -29,31 +29,30 @@ struct ContentView: View {
             )
         )
     }
-    
+
     var body: some View {
-        
         ScrollView {
             Text("(PAN) is empty: \(viewModel.panInputValidationState?.isEmpty ?? false ? "✅" : "❌")")
                 .padding()
-            
+
                 .onReceive(viewModel.$isPanElementFocused) { isFocused in
                     print("PAN element changed? \(isFocused)")
                 }
-            
+
             Text("(PAN) is valid: \(viewModel.panInputValidationState?.isValid ?? false ? "✅" : "❌")")
                 .padding()
-            
+
             Text("(PAN) is complete: \(viewModel.panInputValidationState?.isComplete ?? false ? "✅" : "❌")")
                 .padding()
-            
+
             Text("(PAN) has focus: \(viewModel.isPanElementFocused ? "Focused" : "Blurred")")
                 .padding()
-            
+
             let isPanValid = viewModel.panInputValidationState?.isValid ?? true
             let isPanFocused = viewModel.panInputValidationState?.isFirstResponder ?? true
-            
+
             let showRedBorder = !isPanFocused && !isPanValid
-            
+
             VStack {
                 VStack {
                     ForagePANView(
@@ -63,7 +62,7 @@ struct ContentView: View {
                     )
                 }.frame(height: 37)
                     .padding()
-                
+
                 Button(action: {
                     if let textField = viewModel.panTextField {
                         ForageSDK.shared.tokenizeEBTCard(
@@ -72,13 +71,11 @@ struct ContentView: View {
                             customerID: "dev_swiftui_customer_id"
                         ) { result in
                             switch result {
-                            case .success(let paymentMethod):
+                            case let .success(paymentMethod):
                                 tokenizeResult = paymentMethod
-                                break
-                            case .failure(let error):
+                            case let .failure(error):
                                 errorMessage = error.localizedDescription
                                 showError = true
-                                break
                             }
                         }
                     }
@@ -89,13 +86,13 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                
+
                 Text(
                     "PaymentMethod ref: \(tokenizeResult?.paymentMethodIdentifier ?? "")"
                 ).padding()
-                
+
                 Spacer()
-                
+
                 VStack {
                     ForagePINView(
                         viewModel: viewModel,
@@ -104,36 +101,34 @@ struct ContentView: View {
                     )
                 }.frame(width: 140, height: 80)
                     .padding()
-                
+
                 Button(action: {
                     guard let tokenizeResult = tokenizeResult else { return }
-                    
+
                     if let pinTextField = viewModel.pinTextField {
                         ForageSDK.shared.checkBalance(
                             foragePinTextField: pinTextField,
                             paymentMethodReference: tokenizeResult.paymentMethodIdentifier
                         ) { result in
                             switch result {
-                            case .success(let balance):
+                            case let .success(balance):
                                 balanceResult = balance
-                                break
-                            case .failure(let error):
+                            case let .failure(error):
                                 errorMessage = error.localizedDescription
                                 showError = true
-                                break
                             }
                         }
                     }
                 }) {
                     let isComplete = viewModel.pinInputValidationState?.isComplete ?? true
-                    
+
                     Text("Check Balance")
                         .padding()
                         .background(isComplete ? Color.blue : Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }.padding()
-                
+
                 Text(
                     "Balance - SNAP: \(balanceResult?.snap ?? "N/A"), Cash \(balanceResult?.cash ?? "N/A")"
                 )
@@ -157,6 +152,6 @@ struct ContentView: View {
 
 // Comment out if your version of Xcode supports the #Preview macro
 
-//#Preview {
+// #Preview {
 //    ContentView(viewModel: ForageViewModel())
-//}
+// }
